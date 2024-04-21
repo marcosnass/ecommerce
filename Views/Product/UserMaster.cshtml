@@ -1,0 +1,55 @@
+@model List<ecommerce.Models.Product>
+
+<h3>@ViewData["Title"]</h3>
+
+@if (Model.Count > 0){
+
+    <table class="table">
+    <thead>
+        <tr>
+        <th scope="col">Id Prod</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">QT Estoque</th>
+        <th scope="col">Preço</th>
+        @foreach(var p in Model){
+            if(p.Code_user){
+                <th scope="col">Data da Inserção</th>
+                <th scope="col">Acões</th>
+            }
+        }
+        
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        @foreach (var product in Model){
+            <tr>
+            
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Type</td>
+                <td>@product.Description</td>
+                <td>@product.qtStoque</td>
+                <td>R$ @product.Price</td>
+                @foreach(var p in Model){
+                    if(p.Code_user){
+                        <td>@product.Date</td>
+                        <td>
+                            <a asp-controller="Product" asp-action="Edit" asp-route-id="@product.Id" class="btn btn-warning">Editar</a>
+                            <a asp-controller="Product" asp-action="Delete" asp-route-id="@product.Id" class="btn btn-danger">Deletar</a>
+                        </td>
+                    }
+                }
+            </tr>
+        }
+        </tr>
+    </tbody>
+    </table>
+    <a asp-controller="Product" asp-action="Create" class="btn btn-primary">Adicionar</a>
+    <a asp-controller="Product" asp-action="Index" class="btn btn-primary">Trocar Usuário</a>
+}
+else {
+    <p>Nenhum produto cadastrado!!!</p>
+}

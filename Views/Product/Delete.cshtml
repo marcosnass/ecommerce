@@ -1,0 +1,8 @@
+@model ecommerce.Models.Product
+
+<h1>@ViewData["Title"]</h1>
+
+<p> Deseja realmente excluir o usuáio <strong>@Model.Name</strong> ?</p>
+<form method="POST">
+    <button class="btn btn-danger" type="submit">Excluir</button>
+</form>

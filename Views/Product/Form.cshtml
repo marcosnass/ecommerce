@@ -1,0 +1,33 @@
+@model ecommerce.Models.Product
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="POST">
+  <div class="mb-3">
+    <label asp-for="Name" class="form-label">Nome do Produto</label>
+    <input asp-for="Name" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label asp-for="Type" class="form-label">Tipo</label>
+    <input asp-for="Type"  class="form-control">
+  </div>
+  <div class="mb-3">
+    <label asp-for="Description" class="form-label">Descrição</label>
+    <input asp-for="Description" class="form-control" yaria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label asp-for="qtStoque" class="form-label">Qt Estoque</label>
+    <input asp-for="qtStoque" class="form-control" yaria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label asp-for="Price" class="form-label">Preço</label>
+    <input asp-for="Price" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label asp-for="Date" class="form-label">Insira a Data</label>
+    <input asp-for="Date" class="form-control">
+  </div>
+  
+  
+  <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
